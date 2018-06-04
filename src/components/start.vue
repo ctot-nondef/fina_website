@@ -24,7 +24,8 @@ export default {
   mixins: [HELPERS],
   data: () => ({
     toFetch: {
-      splash: 'full\\22',
+      about: 'full\\2',
+      partners: 'full\\3',
       projects: 'teaser\\?type=project',
     },
     windowSize: {
@@ -52,6 +53,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .headline {
-  background-color: #BA0F2B;
+  background-color: rgba(186,15,43,0.5);
 }
 </style>
