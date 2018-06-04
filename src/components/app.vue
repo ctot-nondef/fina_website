@@ -37,9 +37,6 @@
       <v-footer class="primary"  app v-if="!loading">
           <v-flex xs12>
             <v-layout row wrap  >
-              <v-flex v-for="item in footermenu" :key="item.tid[0].value" xs12 md6 class="text-xs-center mt-5 mb-5">
-                <v-btn color="white" flat :to="{name: item.field_path[0].value}">{{ item.name[0].value }}</v-btn>
-              </v-flex>
               <!-- <v-flex xs12 md4 class="text-xs-center mt-5 mb-5">
                 <v-text-field name="input-1" v-model="searchstring" v-on:keyup.enter="searchfunc" label="Suche" dark box ></v-text-field>
               </v-flex> -->
@@ -52,9 +49,6 @@
         <v-footer  app v-if="!loading">
           <v-flex xs12 >
             <v-layout row wrap>
-              <v-flex v-for="(logo, index) in footer[0].imagefull" :key="index" xs12 md4 class="text-xs-center mt-5 mb-5" >
-                <img align-center :src="logo.url" style="max-height:200px;max-width:200px;" >
-              </v-flex>
             </v-layout>
           </v-flex>
       </v-footer>
@@ -69,13 +63,12 @@
     mixins: [HELPERS],
     data: () => ({
       toFetch: {
-        footer: 'full\\50',
-        footermenu: 'menu?vid=footer',
         items: 'menu?vid=menu',
       },
       searchstring: '',
       items: null,
       loading: true,
+      active: '',
     }),
     watch: {
       // reload data if language is swapped
