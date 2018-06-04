@@ -9,7 +9,7 @@ import router from './router';
 
 Vue.use(Vuetify, {
   theme: {
-    primary: '#ee44aa',
+    primary: '#BA0F2B',
     secondary: '#424242',
     accent: '#82B1FF',
     error: '#FF5252',
@@ -23,7 +23,6 @@ Vue.use(VueAxios, axios);
 
 Vue.config.productionTip = false;
 
-/* eslint-disable no-new */
 /* eslint-disable no-new */
 new Vue({
   router,

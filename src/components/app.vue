@@ -1,91 +1,102 @@
 <template>
-  <v-app>
-    <v-navigation-drawer
-      persistent
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      v-model="drawer"
-      enable-resize-watcher
-      fixed
-      app
-    >
-      <v-list>
-        <v-list-tile
-          value="true"
-          v-for="(item, i) in items"
-          :key="i"
-        >
-          <v-list-tile-action>
-            <v-icon v-html="item.icon"></v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title v-text="item.title"></v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
-    <v-toolbar
-      app
-      :clipped-left="clipped"
-    >
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-btn icon @click.stop="miniVariant = !miniVariant">
-        <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
-      </v-btn>
-      <v-btn icon @click.stop="clipped = !clipped">
-        <v-icon>web</v-icon>
-      </v-btn>
-      <v-btn icon @click.stop="fixed = !fixed">
-        <v-icon>remove</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title"></v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn icon @click.stop="rightDrawer = !rightDrawer">
-        <v-icon>menu</v-icon>
-      </v-btn>
-    </v-toolbar>
-    <v-content>
-      <router-view/>
-    </v-content>
-    <v-navigation-drawer
-      temporary
-      :right="right"
-      v-model="rightDrawer"
-      fixed
-      app
-    >
-      <v-list>
-        <v-list-tile @click="right = !right">
-          <v-list-tile-action>
-            <v-icon>compare_arrows</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
-    <v-footer :fixed="fixed" app>
-      <span>&copy; 2017</span>
-    </v-footer>
-  </v-app>
+    <v-app light>
+      <v-toolbar app fixed class="elevation-0">
+          <v-toolbar-title>
+            <router-link :to="{ name: 'start' }">
+              <div class="logo">
+                <img src="@/assets/logo.png" height="55px" alt="Vuetify.js" class="mb-1">
+              </div>
+            </router-link>
+          </v-toolbar-title>
+          <v-spacer></v-spacer>
+          <div class="text-xs-center hidden-lg-and-up">
+            <v-menu offset-y>
+              <v-btn class="elevation-5" icon slot="activator"><v-icon>list</v-icon></v-btn>
+              <v-list v-if="!loading">
+                <v-list-tile v-for="item in items" :key="item.tid[0].value" :to="{name: item.field_path[0].value}">
+                  <v-list-tile-title>{{ item.name[0].value }}</v-list-tile-title>
+                </v-list-tile>
+              </v-list>
+            </v-menu>
+          </div>
+          <v-toolbar-items >
+            <v-tabs v-model="active" slider-color="primary"  color="grey lighten-4" class="hidden-md-and-down">
+              <v-tab v-for="item in items" :key="item.tid[0].value" :to="{name: item.field_path[0].value}"
+                ripple
+              >
+                {{ item.name[0].value }}
+              </v-tab>
+            </v-tabs>
+          </v-toolbar-items>
+      </v-toolbar>
+      <main>
+        <v-slide-y-transition mode="out-in">
+            <router-view name="Content"></router-view>
+        </v-slide-y-transition>
+      </main>
+      <v-footer class="primary"  app v-if="!loading">
+          <v-flex xs12>
+            <v-layout row wrap  >
+              <v-flex v-for="item in footermenu" :key="item.tid[0].value" xs12 md6 class="text-xs-center mt-5 mb-5">
+                <v-btn color="white" flat :to="{name: item.field_path[0].value}">{{ item.name[0].value }}</v-btn>
+              </v-flex>
+              <!-- <v-flex xs12 md4 class="text-xs-center mt-5 mb-5">
+                <v-text-field name="input-1" v-model="searchstring" v-on:keyup.enter="searchfunc" label="Suche" dark box ></v-text-field>
+              </v-flex> -->
+              <v-flex xs12 md6 class="text-xs-center mt-5 mb-5">
+                <v-btn color="white" flat href="mailto:vchc@univie.ac.at">KONTAKT</v-btn>
+              </v-flex>
+            </v-layout>
+          </v-flex>
+        </v-footer color="primary"  app v-if="!loading">
+        <v-footer  app v-if="!loading">
+          <v-flex xs12 >
+            <v-layout row wrap>
+              <v-flex v-for="(logo, index) in footer[0].imagefull" :key="index" xs12 md4 class="text-xs-center mt-5 mb-5" >
+                <img align-center :src="logo.url" style="max-height:200px;max-width:200px;" >
+              </v-flex>
+            </v-layout>
+          </v-flex>
+      </v-footer>
+    </v-app>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      clipped: false,
-      drawer: true,
-      fixed: false,
-      items: [{
-        icon: 'bubble_chart',
-        title: 'Inspire',
-      }],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js',
-    };
-  },
-  name: 'App',
-};
+  import HELPERS from '../helpers';
+
+  export default {
+    /* eslint no-console: ["error", { allow: ["log"] }] */
+    mixins: [HELPERS],
+    data: () => ({
+      toFetch: {
+        footer: 'full\\50',
+        footermenu: 'menu?vid=footer',
+        items: 'menu?vid=menu',
+      },
+      searchstring: '',
+      items: null,
+      loading: true,
+    }),
+    watch: {
+      // reload data if language is swapped
+      $route(to, from) {
+        if (to.params.lang !== from.params.lang) {
+          location.reload();
+        }
+      },
+    },
+    methods: {
+      searchfunc(term) {
+        this.$router.push({ name: 'search', params: { searchstring: term.target.value } });
+      },
+    },
+    route: {
+      canReuse: false,
+    },
+  };
+
 </script>
+
+<style >
+
+</style>
