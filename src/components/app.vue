@@ -34,24 +34,6 @@
             <router-view name="Content"></router-view>
         </v-slide-y-transition>
       </main>
-      <v-footer class="primary"  app v-if="!loading">
-          <v-flex xs12>
-            <v-layout row wrap  >
-              <!-- <v-flex xs12 md4 class="text-xs-center mt-5 mb-5">
-                <v-text-field name="input-1" v-model="searchstring" v-on:keyup.enter="searchfunc" label="Suche" dark box ></v-text-field>
-              </v-flex> -->
-              <v-flex xs12 md6 class="text-xs-center mt-5 mb-5">
-                <v-btn color="white" flat href="mailto:vchc@univie.ac.at">KONTAKT</v-btn>
-              </v-flex>
-            </v-layout>
-          </v-flex>
-        </v-footer color="primary"  app v-if="!loading">
-        <v-footer  app v-if="!loading">
-          <v-flex xs12 >
-            <v-layout row wrap>
-            </v-layout>
-          </v-flex>
-      </v-footer>
     </v-app>
 </template>
 
