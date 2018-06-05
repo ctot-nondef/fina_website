@@ -18,6 +18,29 @@
          </v-carousel-item>
        </v-carousel>
     </section>
+    <section class="pt-5 pb-5">
+        <v-container grid-list-xl>
+          <v-layout row wrap>
+            <v-flex xs12 lg6 xl4  v-for="about in about">
+              <v-card class="elevation-5 projectcard white--text">
+                <v-container fluid grid-list-sm>
+                  <v-layout row wrap>
+                    <v-flex xs12 md7>
+                        <v-card-title primary-title style="flex-direction: column; align-items: flex-start;">
+                            <h6>{{ about.headline }}</h6>
+                        </v-card-title>
+                    </v-flex>
+                    <v-flex xs12>
+                        <v-card-text v-html="about.description">
+                        </v-card-text>
+                    </v-flex>
+                  </v-layout>
+                </v-container>
+              </v-card>
+            </v-flex>
+          </v-layout>
+        </v-container>
+    </section>
   </v-content>
 </template>
 
