@@ -4,10 +4,14 @@
          <v-carousel-item v-for="(slide, i) in projects" :src="slide.primaryImageOfPage.url" :key="i">
            <v-jumbotron dark>
              <v-container fill-height>
-               <v-layout align-end>
-                 <v-flex>
-                   <h3 class="display-1 headline px-1 py-1">{{ slide.headline }}</h3>
-                 </v-flex>
+               <v-layout column>
+                 <v-flex xs12></v-flex>
+                 <v-flex xs12></v-flex>
+                 <v-spacer></v-spacer>
+                 <v-layout column xs12>
+                     <h3 class="display-1 headline px-1 py-1">{{ slide.headline }}</h3>
+                     <h3 class="title description px-1 py-1 hidden-md-and-down">{{ slide.description }}</h3>
+                 </v-layout>
                </v-layout>
              </v-container>
            </v-jumbotron>
@@ -53,6 +57,11 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .headline {
+  background-color: rgba(34,34,34,0.5);
+  width: 80%;
+}
+.description {
   background-color: rgba(186,15,43,0.5);
+  width: 80%;
 }
 </style>
