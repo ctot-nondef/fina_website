@@ -1,13 +1,21 @@
 <template>
-  <div>
-    <v-content fluid v-if="loading">
+  <div class="">
+    <v-container fluid v-if="loading">
       <v-slide-y-transition mode="out-in">
         <v-layout column align-center>
           <img src="@/assets/logo.png" alt="Vuetify.js" class="mb-5">
         </v-layout>
       </v-slide-y-transition>
-    </v-content>
+    </v-container>
     <v-content v-if="!loading">
+      <section class="pb-5">
+        <v-parallax  v-bind:src="splash[0].banner.url" height="380">
+          <v-layout column align-center justify-center>
+            <div class="layer"></div>
+            <h4 class="white--text pagecaption">{{ splash[0].headline }}</h4>
+          </v-layout>
+        </v-parallax>
+      </section>
       <section class="pt-5 pb-5">
          <v-carousel style="height: 60%" hide-delimiters>
            <v-carousel-item v-for="(slide, i) in projects" :src="slide.primaryImageOfPage.url" :key="i">
@@ -67,7 +75,6 @@ export default {
   data: () => ({
     toFetch: {
       about: 'full\\2',
-      partners: 'full\\3',
       projects: 'teaser\\?type=project',
     },
     windowSize: {

@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import app from '@/components/app';
 import start from '@/components/start';
+import about from '@/components/about';
 import HelloWorld from '@/components/HelloWorld';
 
 Vue.use(Router);
@@ -60,7 +61,7 @@ export default new Router({
           path: 'about',
           name: 'about',
           components: {
-            Content: HelloWorld,
+            Content: about,
           },
         },
         {
