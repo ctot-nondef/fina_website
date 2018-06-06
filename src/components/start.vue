@@ -18,7 +18,7 @@
                    <v-flex xs12></v-flex>
                    <v-spacer></v-spacer>
                    <v-layout column xs12>
-                       <h3 class="display-1 headline carouselhead px-1 py-1">{{ slide.headline }}</h3>
+                       <h3 class="display-1 carouselhead px-1 py-1">{{ slide.headline }}</h3>
                        <h3 class="title carouseldescription px-1 py-1 hidden-md-and-down">{{ slide.description }}</h3>
                    </v-layout>
                  </v-layout>
@@ -29,24 +29,24 @@
       </section>
       <section class="pt-5 pb-5">
           <v-container grid-list-xl>
-            <v-layout row wrap>
+            <v-layout row wrap justify-center>
               <v-flex xs12 lg6 xl4  v-for="about in about">
                 <v-card class="elevation-5 projectcard">
                   <v-card-media :src="about.banner.url" height="200px">
                   </v-card-media>
-                  <v-card-title primary-title style="flex-direction: column; align-items: flex-start;">
-                      <h3 class="headline cardhead white--text px-2">{{ about.headline }}</h3>
+                  <v-card-title class="cardheadcontainer">
+                      <h3 class="title cardhead white--text px-2 py-2">{{ about.headline }}</h3>
                   </v-card-title>
-                  <v-card-text v-html="about.description">
+                  <v-card-text class="body-2" v-html="about.description">
                   </v-card-text>
                 </v-card>
               </v-flex>
-              <v-flex xs12 lg6 xl4  v-for="about in partners">
+              <v-flex xs12 lg6 xl4 v-for="about in partners">
                 <v-card class="elevation-5 projectcard">
                   <v-card-media v-if="about.banner" :src="about.banner.url"  height="200px">
                   </v-card-media>
                   <v-card-title primary-title style="flex-direction: column; align-items: flex-start;">
-                      <h3 class="headline cardhead white--text px-2">{{ about.headline }}</h3>
+                      <h3 class="title cardhead white--text px-2 py-2">{{ about.headline }}</h3>
                   </v-card-title>
                   <v-card-text v-html="about.description">
                   </v-card-text>
@@ -91,6 +91,7 @@ export default {
 .carouselhead {
   background-color: rgba(34,34,34,0.5);
   width: 80%;
+  font-family: 'Alegreya', serif;
 }
 .carouseldescription {
   background-color: rgba(186,15,43,0.5);
@@ -99,6 +100,11 @@ export default {
 
 .cardhead {
   background-color: rgb(186,15,43);
+}
+
+.cardheadcontainer {
+  top: -40px;
+  position: relative;
 }
 
 </style>

@@ -5,6 +5,7 @@ import axios from 'axios';
 import VueAxios from 'vue-axios';
 import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.min.css';
+import './main.css';
 import router from './router';
 
 Vue.use(Vuetify, {
