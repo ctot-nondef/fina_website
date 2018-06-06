@@ -1,3 +1,9 @@
+.pagehead {
+  font-family: 'Alegreya', serif;
+  font-weight:500;
+  font-style: italic;
+}
+
 .cardhead {
   background-color: rgb(186,15,43);
   font-family: 'Alegreya', serif;
@@ -5,8 +11,17 @@
   font-style: italic;
 }
 
-.pagehead {
+.cardheadcontainer {
+  top: -40px;
+  position: relative;
+}
+
+.carouselhead {
+  background-color: rgba(34,34,34,0.5);
+  width: 80%;
   font-family: 'Alegreya', serif;
-  font-weight:500;
-  font-style: italic;
+}
+.carouseldescription {
+  background-color: rgba(186,15,43,0.5);
+  width: 80%;
 }

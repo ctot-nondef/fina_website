@@ -3,6 +3,8 @@ import Router from 'vue-router';
 import app from '@/components/app';
 import start from '@/components/start';
 import about from '@/components/about';
+import projects from '@/components/projects';
+import partners from '@/components/partners';
 import HelloWorld from '@/components/HelloWorld';
 
 Vue.use(Router);
@@ -47,14 +49,14 @@ export default new Router({
           path: 'projects',
           name: 'projects',
           components: {
-            Content: HelloWorld,
+            Content: projects,
           },
         },
         {
           path: 'partners',
           name: 'partners',
           components: {
-            Content: HelloWorld,
+            Content: partners,
           },
         },
         {

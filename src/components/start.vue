@@ -88,23 +88,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.carouselhead {
-  background-color: rgba(34,34,34,0.5);
-  width: 80%;
-  font-family: 'Alegreya', serif;
-}
-.carouseldescription {
-  background-color: rgba(186,15,43,0.5);
-  width: 80%;
-}
 
-.cardhead {
-  background-color: rgb(186,15,43);
-}
-
-.cardheadcontainer {
-  top: -40px;
-  position: relative;
-}
 
 </style>

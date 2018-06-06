@@ -8,42 +8,21 @@
       </v-slide-y-transition>
     </v-container>
     <v-content v-if="!loading">
-      <section>
-        <v-parallax v-bind:src="about[0].primaryImageOfPage.url" height="380">
-          <v-layout column align-center justify-center>
-            <div class="layer"></div>
-            <h1 class="cardhead display-3 py-2 px-2">{{ about[0].headline }}</h1>
-          </v-layout>
-        </v-parallax>
-        <v-container grid-list-md text-xs-center class="mt-5 mb-5" >
-          <v-layout class="pt-5 pb-5" row wrap align-start justify-center>
-          <v-flex xs12 md6 lg5>
-            <div justify-center >
-              <span class="subheading" style="text-align: left;" v-html="about[0].mainContentOfPage"></span>
-            </div>
-          </v-flex>
-          <v-flex xs0 md12 lg1 hidden-sm-and-down></v-flex>
-          <v-flex lg6 xl4 hidden-sm-and-down>
-            <v-layout column align-center >
-              <v-flex v-for="(img, index) in about[0].imagefull" :key="index">
-                <a :href="img.alt" target="_blank"><img :src="img.url" style="max-width:450px;" ></a>
-              </v-flex>
-            </v-layout>
-          </v-flex>
-          </v-layout>
-        </v-container>
-      </section>
       <section class="pt-5 pb-5">
         <v-container grid-list-xs>
-          <h1 class="cardhead display-2 py-2 px-2">Projects</h1>
+          <v-layout row wrap justify-center>
+            <v-flex xs1>
+                <h1 class="display-4 pagehead py-2 px-2">Partners</h1>
+            </v-flex>
+          </v-layout>
         </v-container>
       </section>
       <section class="pt-5 pb-5">
-          <v-container grid-list-xl>
-            <v-layout row wrap>
+          <v-container grid-list-xl >
+            <v-layout row wrap justify-center>
               <v-flex xs12 lg6 xl4  v-for="project in projects">
                 <v-card class="elevation-5 projectcard">
-                  <v-card-media :src="project.thumbnailUrl.url" height="200px">
+                  <v-card-media :src="project.image[0].url" height="200px">
                   </v-card-media>
                   <v-card-title class="cardheadcontainer">
                       <h3 class="headline cardhead white--text px-2">{{ project.headline }}</h3>
@@ -66,8 +45,8 @@ export default {
   mixins: [HELPERS],
   data: () => ({
     toFetch: {
-      about: 'full\\2',
-      projects: 'teaser\\?type=project',
+      about: 'full\\3',
+      projects: 'teaser\\?type=institution',
     },
     windowSize: {
       x: window.innerWidth,
