@@ -31,7 +31,7 @@
           <v-container grid-list-xl>
             <v-layout row wrap justify-center>
               <v-flex xs12 lg6 xl4  v-for="about in about">
-                <v-card class="elevation-5 projectcard">
+                <v-card class="elevation-5">
                   <v-card-media :src="about.banner.url" height="200px">
                   </v-card-media>
                   <v-card-title class="cardheadcontainer">
@@ -42,10 +42,10 @@
                 </v-card>
               </v-flex>
               <v-flex xs12 lg6 xl4 v-for="about in partners">
-                <v-card class="elevation-5 projectcard">
+                <v-card class="elevation-5">
                   <v-card-media v-if="about.banner" :src="about.banner.url"  height="200px">
                   </v-card-media>
-                  <v-card-title primary-title style="flex-direction: column; align-items: flex-start;">
+                  <v-card-title class="cardheadcontainer">
                       <h3 class="title cardhead white--text px-2 py-2">{{ about.headline }}</h3>
                   </v-card-title>
                   <v-card-text v-html="about.description">
