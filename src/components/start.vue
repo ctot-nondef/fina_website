@@ -37,7 +37,7 @@
                   <v-card-title class="cardheadcontainer">
                       <h3 class="title cardhead white--text px-2 py-2">{{ about.headline }}</h3>
                   </v-card-title>
-                  <v-card-text class="body-2" v-html="about.description">
+                  <v-card-text class="body-2 cardheadcontainer" v-html="about.description">
                   </v-card-text>
                 </v-card>
               </v-flex>
@@ -48,7 +48,7 @@
                   <v-card-title class="cardheadcontainer">
                       <h3 class="title cardhead white--text px-2 py-2">{{ about.headline }}</h3>
                   </v-card-title>
-                  <v-card-text v-html="about.description">
+                  <v-card-text class="cardheadcontainer" v-html="about.description">
                   </v-card-text>
                 </v-card>
               </v-flex>

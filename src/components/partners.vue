@@ -22,12 +22,12 @@
             <v-layout row wrap justify-center>
               <v-flex xs12 lg6 xl4  v-for="project in projects">
                 <v-card class="elevation-5 projectcard">
-                  <v-card-media :src="project.image[0].url" height="200px">
+                  <v-card-media :src="project.logo[0].url" height="200px">
                   </v-card-media>
                   <v-card-title class="cardheadcontainer">
                       <h3 class="headline cardhead white--text px-2">{{ project.headline }}</h3>
                   </v-card-title>
-                  <v-card-text v-html="project.description">
+                  <v-card-text class="cardheadcontainer" v-html="project.description">
                   </v-card-text>
                 </v-card>
               </v-flex>
