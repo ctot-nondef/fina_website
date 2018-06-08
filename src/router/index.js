@@ -4,6 +4,7 @@ import app from '@/components/app';
 import start from '@/components/start';
 import about from '@/components/about';
 import projects from '@/components/projects';
+import psingle from '@/components/projectssingle';
 import partners from '@/components/partners';
 import bibliography from '@/components/bibliography';
 import bibsingle from '@/components/bibliographysingle';
@@ -61,6 +62,14 @@ export default new Router({
           components: {
             Content: projects,
           },
+        },
+        {
+          path: 'psingle/:nid',
+          name: 'psingle',
+          components: {
+            Content: psingle,
+          },
+          props: { Content: true },
         },
         {
           path: 'partners',

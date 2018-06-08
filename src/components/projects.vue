@@ -11,7 +11,7 @@
       <section class="pt-5 pb-5">
         <v-container grid-list-xs>
           <v-layout row wrap justify-center>
-            <v-flex xs1>
+            <v-flex xs6>
                 <h1 class="display-4 pagehead py-2 px-2">Projects</h1>
             </v-flex>
           </v-layout>
@@ -21,7 +21,7 @@
           <v-container grid-list-xl >
             <v-layout row wrap justify-center>
               <v-flex xs12 lg6 xl4  v-for="project in projects">
-                <v-card class="elevation-5 projectcard">
+                <v-card class="elevation-5 projectcard" :to="{name: 'psingle', params: { nid: project.name } }">
                   <v-card-media :src="project.thumbnailUrl.url" height="200px">
                   </v-card-media>
                   <v-card-title class="cardheadcontainer">

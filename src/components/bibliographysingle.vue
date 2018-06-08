@@ -36,9 +36,9 @@
                 </v-list-tile-content>
               </v-list-tile>
             </v-list>
-            <v-btn dark class="accent" flat :href="`https://api.zotero.org/groups/2083331/items/${ItemData.key}?format=bib`" target="_blank">Zitation</v-btn>
-            <v-btn dark class="accent" flat :href="`https://api.zotero.org/groups/2083331/items/${ItemData.key}?format=ris`" target="_blank">Export(RIS)</v-btn>
-            <v-btn dark class="accent" flat :href="`https://api.zotero.org/groups/2083331/items/${ItemData.key}?format=bibtex`" target="_blank">Export(BibTeX)</v-btn>
+            <v-btn dark class="accent" flat :href="`https://api.zotero.org/groups/${LibToFetch}/items/${ItemData.key}?format=bib`" target="_blank">Zitation</v-btn>
+            <v-btn dark class="accent" flat :href="`https://api.zotero.org/groups/${LibToFetch}/items/${ItemData.key}?format=ris`" target="_blank">Export(RIS)</v-btn>
+            <v-btn dark class="accent" flat :href="`https://api.zotero.org/groups/${LibToFetch}/items/${ItemData.key}?format=bibtex`" target="_blank">Export(BibTeX)</v-btn>
           </div>
         </v-flex>
         <v-flex xs0 md12 lg1 hidden-sm-and-down></v-flex>
