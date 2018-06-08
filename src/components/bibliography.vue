@@ -1,5 +1,12 @@
 <template>
   <v-container>
+    <v-container fluid v-if="loading">
+      <v-slide-y-transition mode="out-in">
+        <v-layout column align-center>
+          <img src="@/assets/logo.png" alt="Vuetify.js" class="mb-5">
+        </v-layout>
+      </v-slide-y-transition>
+    </v-container>    
     <v-content v-if="!loading">
       <section class="pt-5 pb-5">
         <v-container grid-list-xs>

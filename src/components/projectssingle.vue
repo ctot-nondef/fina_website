@@ -23,10 +23,12 @@
             </div>
           </v-flex>
           <v-flex xs0 md12 lg1 hidden-sm-and-down></v-flex>
-          <v-flex lg6 xl4 hidden-sm-and-down>
-            <v-layout column align-center >
-              <v-flex v-for="(img, index) in about[0].imagefull" :key="index">
-                <a :href="img.alt" target="_blank"><img :src="img.url" style="max-width:450px;" ></a>
+          <v-flex xs12 lg6 xl4>
+            <v-layout >
+              <v-flex>
+                <v-carousel lazy>
+                  <v-carousel-item v-for="(slide, i) in about[0].imageteaser" :src="slide.url" :key="i"></v-carousel-item>
+                </v-carousel>
               </v-flex>
             </v-layout>
           </v-flex>

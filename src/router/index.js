@@ -8,7 +8,6 @@ import psingle from '@/components/projectssingle';
 import partners from '@/components/partners';
 import bibliography from '@/components/bibliography';
 import bibsingle from '@/components/bibliographysingle';
-import HelloWorld from '@/components/HelloWorld';
 
 Vue.use(Router);
 

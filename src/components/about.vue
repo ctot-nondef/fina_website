@@ -33,28 +33,34 @@
           </v-layout>
         </v-container>
       </section>
-      <section class="pt-5 pb-5">
-        <v-container grid-list-xs>
-          <h1 class="cardhead display-2 py-2 px-2">Projects</h1>
-        </v-container>
-      </section>
-      <section class="pt-5 pb-5">
-          <v-container grid-list-xl>
-            <v-layout row wrap>
-              <v-flex xs12 lg6 xl4  v-for="project in projects">
-                <v-card class="elevation-5 projectcard">
-                  <v-card-media :src="project.thumbnailUrl.url" height="200px">
-                  </v-card-media>
-                  <v-card-title class="cardheadcontainer">
-                      <h3 class="headline cardhead white--text px-2">{{ project.headline }}</h3>
-                  </v-card-title>
-                  <v-card-text v-html="project.description">
-                  </v-card-text>
-                </v-card>
+      <v-content v-if="!loading">
+        <section class="pt-5 pb-5">
+          <v-container grid-list-xs>
+            <v-layout row wrap justify-center>
+              <v-flex xs6>
+                  <h1 class="display-4 pagehead py-2 px-2">Projects</h1>
               </v-flex>
             </v-layout>
           </v-container>
-      </section>
+        </section>
+        <section class="pt-5 pb-5">
+            <v-container grid-list-xl >
+              <v-layout row wrap justify-center>
+                <v-flex xs12 lg6 xl4  v-for="project in projects">
+                  <v-card class="elevation-5 projectcard" :to="{name: 'psingle', params: { nid: project.name } }">
+                    <v-card-media :src="project.thumbnailUrl.url" height="200px">
+                    </v-card-media>
+                    <v-card-title class="cardheadcontainer">
+                        <h3 class="headline cardhead white--text px-2">{{ project.headline }}</h3>
+                    </v-card-title>
+                    <v-card-text class="cardheadcontainer" v-html="project.description">
+                    </v-card-text>
+                  </v-card>
+                </v-flex>
+              </v-layout>
+            </v-container>
+        </section>
+      </v-content>
     </v-content>
   </div>
 </template>
