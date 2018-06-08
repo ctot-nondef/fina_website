@@ -3,7 +3,7 @@
       <v-toolbar app fixed class="elevation-0">
           <v-toolbar-title>
             <router-link :to="{ name: 'start' }">
-              <div class="logo">
+              <div class="logo mt-3">
                 <img src="@/assets/logo.png" height="55px" alt="Vuetify.js" class="mb-1">
               </div>
             </router-link>
@@ -29,11 +29,22 @@
             </v-tabs>
           </v-toolbar-items>
       </v-toolbar>
-      <main>
+      <main class="mb-4">
         <v-slide-y-transition mode="out-in">
             <router-view name="Content"></router-view>
         </v-slide-y-transition>
       </main>
+      <v-footer class="pa-3 " relative height="300">
+        <v-container >
+          <v-layout row justify-space-around>
+            <v-flex xs1>
+              <img src="@/assets/Fina_RGB.png" height="150" alt="">
+              <v-spacer></v-spacer>
+              <div>CC-BY {{ new Date().getFullYear() }} <router-link :to="{ name: 'imprint' }"><a >Imprint</a></router-link> </div>
+            </v-flex>
+          </v-layout>
+        </v-container>
+      </v-footer>
     </v-app>
 </template>
 

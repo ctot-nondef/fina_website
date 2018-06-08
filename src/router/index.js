@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import app from '@/components/app';
 import start from '@/components/start';
 import about from '@/components/about';
+import imprint from '@/components/imprint';
 import projects from '@/components/projects';
 import psingle from '@/components/projectssingle';
 import partners from '@/components/partners';
@@ -82,6 +83,13 @@ export default new Router({
           name: 'about',
           components: {
             Content: about,
+          },
+        },
+        {
+          path: 'imprint',
+          name: 'imprint',
+          components: {
+            Content: imprint,
           },
         },
         {
