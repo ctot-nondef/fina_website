@@ -8,12 +8,28 @@
       </v-slide-y-transition>
     </v-container>
     <v-content v-if="!loading">
-      <section class="pt-5 pb-5">
-        <v-container grid-list-xs>
-          <v-layout row wrap justify-center>
-            <v-flex xs1>
-                <h1 class="display-4 pagehead py-2 px-2">Partners</h1>
-            </v-flex>
+      <section>
+        <v-parallax v-bind:src="about[0].primaryImageOfPage.url" height="380">
+          <v-layout column align-center justify-center>
+            <div class="layer"></div>
+            <h1 class="cardhead display-3 py-2 px-2">{{ about[0].headline }}</h1>
+          </v-layout>
+        </v-parallax>
+        <v-container grid-list-md text-xs-center class="mt-5 mb-5" >
+          <v-layout class="pt-5 pb-5" row wrap align-start justify-center>
+          <v-flex xs12 md6 lg5>
+            <div justify-center >
+              <span class="subheading" style="text-align: left;" v-html="about[0].mainContentOfPage"></span>
+            </div>
+          </v-flex>
+          <v-flex xs0 md12 lg1 hidden-sm-and-down></v-flex>
+          <v-flex lg6 xl4 hidden-sm-and-down>
+            <v-layout column align-center >
+              <v-flex v-for="(img, index) in about[0].imagefull" :key="index">
+                <a :href="img.alt" target="_blank"><img :src="img.url" style="max-width:450px;" ></a>
+              </v-flex>
+            </v-layout>
+          </v-flex>
           </v-layout>
         </v-container>
       </section>
