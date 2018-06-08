@@ -10,7 +10,7 @@
     <v-content v-if="!loading">
       <section class="pt-5 pb-5">
          <v-carousel style="height: 60%" hide-delimiters>
-           <v-carousel-item v-for="(slide, i) in projects" :src="slide.primaryImageOfPage.url" :key="i">
+           <v-carousel-item v-for="(slide, i) in projects" :src="slide.primaryImageOfPage.url" :key="i"  :to="{name: 'psingle', params: { nid: slide.name } }">
              <v-jumbotron dark>
                <v-container fill-height>
                  <v-layout column>
@@ -31,7 +31,7 @@
           <v-container grid-list-xl>
             <v-layout row wrap justify-center>
               <v-flex xs12 lg6 xl4  v-for="about in about">
-                <v-card class="elevation-5">
+                <v-card class="elevation-5"  :to="{name: 'about'}">
                   <v-card-media :src="about.banner.url" height="200px">
                   </v-card-media>
                   <v-card-title class="cardheadcontainer">
@@ -42,7 +42,7 @@
                 </v-card>
               </v-flex>
               <v-flex xs12 lg6 xl4 v-for="about in partners">
-                <v-card class="elevation-5">
+                <v-card class="elevation-5"  :to="{name: 'partners' }">
                   <v-card-media v-if="about.banner" :src="about.banner.url"  height="200px">
                   </v-card-media>
                   <v-card-title class="cardheadcontainer">
