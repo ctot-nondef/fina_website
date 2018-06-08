@@ -5,6 +5,8 @@ import start from '@/components/start';
 import about from '@/components/about';
 import projects from '@/components/projects';
 import partners from '@/components/partners';
+import bibliography from '@/components/bibliography';
+import bibsingle from '@/components/bibliographysingle';
 import HelloWorld from '@/components/HelloWorld';
 
 Vue.use(Router);
@@ -42,8 +44,16 @@ export default new Router({
           path: 'bibliography',
           name: 'bibliography',
           components: {
-            Content: HelloWorld,
+            Content: bibliography,
           },
+        },
+        {
+          path: 'bibsingle/:zkey',
+          name: 'bibsingle',
+          components: {
+            Content: bibsingle,
+          },
+          props: { Content: true },
         },
         {
           path: 'projects',
