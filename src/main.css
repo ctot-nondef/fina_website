@@ -9,6 +9,7 @@
   font-family: 'Alegreya', serif;
   font-weight:500;
   font-style: italic;
+  width: 80%;
 }
 
 .cardheadcontainer {
@@ -20,10 +21,17 @@
 
 .carouselhead {
   background-color: rgba(34,34,34,0.5);
-  width: 80%;
   font-family: 'Alegreya', serif;
+  width: 80%;
 }
 .carouseldescription {
   background-color: rgba(186,15,43,0.5);
   width: 80%;
+}
+
+/* Workarounds for IE11 and greater */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+   .carouseldescription {
+      position: absolute;
+   }
 }
