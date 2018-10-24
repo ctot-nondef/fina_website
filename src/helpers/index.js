@@ -28,11 +28,36 @@ export default {
       return HTTP.all(promises).then((res) => {
         let idn = a.length - 1;
         while (idn > -1) {
-          this[a[idn][0]] = res[idn].data;
+          this[a[idn][0]] = this.fixImgPath(res[idn].data);
           idn -= 1;
         }
         this.loading = false;
       });
+    },
+    fixImgPath(input) {
+      let idx = input.length - 1;
+      while (idx > -1) {
+        if (input[idx].image) {
+          input[idx].image.map((i) => {
+            i.url = i.url.replace('apollo.arz', 'acdh');
+            return i;
+          });
+        }
+        if (input[idx].imagefull) {
+          input[idx].imagefull.map((i) => {
+            i.url = i.url.replace('apollo.arz', 'acdh');
+            return i;
+          });
+        }
+        if (input[idx].imageteaser) {
+          input[idx].imageteaser.map((i) => {
+            i.url = i.url.replace('apollo.arz', 'acdh');
+            return i;
+          });
+        }
+        idx -= 1;
+      }
+      return input;
     },
     goTo(dest) {
       const el = `#node${dest}`;
